@@ -49,8 +49,8 @@ func analyseMessage(message Message) (response Response, err error) {
 }
 
 func onWaitingForCommandEvent(message Message) (response Response, err error) {
-
-	response = Response{TeamID: message.TeamID}
+	response = Response{TeamID: message.TeamID,
+		Command: Command{Name: "MOVE", Location: message.AvailableParcelsForTeams[0].Location.Pickup}}
 
 	return response, nil
 }
